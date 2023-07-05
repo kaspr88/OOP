@@ -1,28 +1,24 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FamilyTree {
+public class FamilyTree implements Serializable {
     List<Node> humanList;
 
-
-    public  FamilyTree() {
+    public FamilyTree() {
         humanList = new ArrayList<>();
-
     }
 
     public void addHuman(Node human) {
         humanList.add(human);
-
     }
 
     public String getHumanInfo() {
         StringBuilder info = new StringBuilder();
-        for (Human human:humanList) {
+        for (Human human : humanList) {
             info.append(human);
             info.append("\n");
         }
-
         return info.toString();
     }
-
 }
