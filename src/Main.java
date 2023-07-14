@@ -1,5 +1,5 @@
 import family_tree.FamilyTree;
-import human.Node;
+import human.Human;
 import writable.FileHandler;
 
 import java.time.LocalDate;
@@ -9,10 +9,10 @@ public class Main {
 
         FamilyTree FamilyTree = new FamilyTree();
         FileHandler fh = new FileHandler();
-        Node father = new Node(LocalDate.of(1989, 2, 13), "Иванов Иван");
-        Node mother = new Node(LocalDate.of(1993, 6, 22), "Иванова Василиса");
-        Node children1 = new Node(LocalDate.of(2015, 4, 23), "Иванов Василий", father, mother);
-        Node children2 = new Node(LocalDate.of(2023, 10, 16), "Иванова Алиса", father, mother);
+        Human father = new Human(LocalDate.of(1989, 2, 13), "Иванов Иван");
+        Human mother = new Human(LocalDate.of(1993, 6, 22), "Иванова Василиса");
+        Human children1 = new Human(LocalDate.of(2015, 4, 23), "Иванов Василий", father, mother);
+        Human children2 = new Human(LocalDate.of(2023, 10, 16), "Иванова Алиса", father, mother);
         FamilyTree.addHuman(mother);
         FamilyTree.addHuman(father);
         FamilyTree.addHuman(children1);

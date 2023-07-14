@@ -1,29 +1,29 @@
 package family_tree;
 
 import human.Human;
-import human.HumanConporatorBirthDay;
-import human.HumanConporatorName;
-import human.Node;
+import human.HumanComporatorBirthDay;
+import human.HumanComporatorName;
+
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class FamilyTree implements Serializable, Iterable<Human> {
-    List<Human> humanList;
+public class FamilyTree<E extends FamilyTreeGen<E>> implements Serializable, Iterable<Human> {
+    List<E> humanList;
 
     public FamilyTree() {
         humanList = new ArrayList<>();
     }
 
-    public void addHuman(Node human) {
+    public void addHuman(E human) {
         humanList.add(human);
     }
 
     public String getHumanInfo() {
         StringBuilder info = new StringBuilder();
-        for (Human human : humanList) {
+        for (E human : humanList) {
             info.append(human);
             info.append("\n");
         }
@@ -31,10 +31,10 @@ public class FamilyTree implements Serializable, Iterable<Human> {
     }
 
     public void sortBirthDay() {
-        humanList.sort(new HumanConporatorBirthDay());
+        humanList.sort(new HumanComporatorBirthDay<>());
     }
     public void sortName() {
-        humanList.sort(new HumanConporatorName());
+        humanList.sort(new HumanComporatorName<>());
     }
 
     @Override
